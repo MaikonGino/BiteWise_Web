@@ -1,4 +1,5 @@
 import 'package:bitewise/features/auth/login.dart';
+import 'package:bitewise/features/auth/signup.dart';
 import 'package:bitewise/features/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => const Home(),
         '/login': (context) => const Login(),
+        '/cadastro': (context) => const Signup(),
       },
     );
   }

@@ -1,17 +1,18 @@
 import 'package:bitewise/core/theme/app_theme.dart';
+import 'package:bitewise/shared/widgets/custom_link.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class SignupForm extends StatelessWidget {
+  const SignupForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return _buildLoginContainer(context);
+    return _buildSignupContainer(context);
   }
 
-  Widget _buildLoginContainer(BuildContext context) {
+  Widget _buildSignupContainer(BuildContext context) {
     return Container(
-      height: 900,
+      height: 1200,
       width: double.infinity,
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -22,7 +23,7 @@ class LoginForm extends StatelessWidget {
       ),
       child: Container(
         width: 1000,
-        height: 800,
+        height: 1100,
         decoration: BoxDecoration(
           boxShadow: [BoxShadow(blurRadius: 3)],
           borderRadius: BorderRadius.circular(10),
@@ -42,7 +43,7 @@ class LoginForm extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Login',
+                        'Cadastro',
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 35,
@@ -50,83 +51,91 @@ class LoginForm extends StatelessWidget {
                           color: AppTheme.preto,
                         ),
                       ),
-                      _buildLoginField(
-                        'E-mail',
+                      _buildSignupField(
+                        'Nome',
                         false,
                         context,
-                        'Insira seu e-mail cadastrado',
+                        'Insira o seu nome completo',
                       ),
-                      _buildLoginField(
+                      _buildSignupField(
+                        'E-mail',
+                        true,
+                        context,
+                        'Insira seu e-mail - ele será seu usuário para o login',
+                      ),
+                      _buildSignupField(
                         'Senha',
                         true,
                         context,
-                        'Insira sua senha cadastrada',
+                        'Insira sua senha - ela será usada para o login',
+                      ),
+                      _buildSignupField(
+                        'Repita sua Senha',
+                        true,
+                        context,
+                        'Insira sua a senha que você acabou de criar',
                       ),
                     ],
                   ),
-                  Row(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 170,
+                    spacing: 10,
                     children: [
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40),
-                            child: Text(
-                              'Não possui cadastro?',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
-                              ),
+                            child: Row(
+                              spacing: 5,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Já tem uma conta?',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                CustomLink(
+                                  text: 'Clique aqui',
+                                  url: '/login',
+                                  underline: false,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    color: AppTheme.verdeMarProfundo,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 2),
-                            child: _buildLoginButton(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: _buildSignupButton(
                               context,
                               '/cadastro',
-                              'CADASTRE-SE',
+                              'CRIAR CONTA',
                               TextStyle(
-                                color: AppTheme.preto,
+                                color: AppTheme.branco,
                                 fontFamily: 'Poppins',
                                 fontSize: 22,
                                 fontWeight: FontWeight.w600,
                               ),
                               ElevatedButton.styleFrom(
-                                backgroundColor: AppTheme.branco,
+                                backgroundColor: AppTheme.laranjaPaprika,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 side: BorderSide(color: AppTheme.cinzaNuvem),
-                                fixedSize: Size(240, 50),
+                                fixedSize: Size(300, 50),
                               ),
                             ),
                           ),
                         ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 60),
-                        child: _buildLoginButton(
-                          context,
-                          '/login',
-                          'ENTRAR',
-                          TextStyle(
-                            color: AppTheme.branco,
-                            fontFamily: 'Poppins',
-                            fontSize: 22,
-                            fontWeight: FontWeight.w800,
-                          ),
-                          ElevatedButton.styleFrom(
-                            backgroundColor: AppTheme.laranjaPaprika,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            fixedSize: Size(240, 50),
-                          ),
-                        ),
                       ),
                     ],
                   ),
@@ -202,7 +211,7 @@ class LoginForm extends StatelessWidget {
     );
   }
 
-  Widget _buildLoginField(
+  Widget _buildSignupField(
     String fieldName,
     bool isHidden,
     BuildContext context,
@@ -255,8 +264,8 @@ class LoginForm extends StatelessWidget {
               fillColor: AppTheme.branco,
               labelText: labelText,
               labelStyle: TextStyle(
-                color: AppTheme.cinzaNuvem,
                 fontFamily: 'Poppins',
+                color: AppTheme.cinzaNuvem,
                 fontWeight: FontWeight.w300,
               ),
               floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -269,7 +278,7 @@ class LoginForm extends StatelessWidget {
     );
   }
 
-  Widget _buildLoginButton(
+  Widget _buildSignupButton(
     BuildContext context,
     String url,
     String buttonText,
