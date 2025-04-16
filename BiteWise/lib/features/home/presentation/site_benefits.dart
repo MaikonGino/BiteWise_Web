@@ -25,7 +25,6 @@ class SiteBenefitsWidget extends StatelessWidget {
         Text(
           'Menos tempo na cozinha, mais sabor na sua vida!',
           style: TextStyle(
-            fontFamily: 'Poppins',
             fontSize: 30,
             color: AppTheme.preto,
             fontWeight: FontWeight.w800,
@@ -35,11 +34,7 @@ class SiteBenefitsWidget extends StatelessWidget {
           padding: EdgeInsets.only(top: 30),
           child: Text(
             'Já imaginou transformar a sua cozinha em um espaço de criatividade e economia? Com o BiteWise, você aproveita seus ingredientes ao máximo. Experimente grátis e veja como é fácil planejar refeições incríveis com o que você já tem em casa!',
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 16,
-              color: AppTheme.preto,
-            ),
+            style: TextStyle(fontSize: 16, color: AppTheme.preto),
           ),
         ),
       ],
@@ -56,11 +51,7 @@ class SiteBenefitsWidget extends StatelessWidget {
             TextSpan(
               text:
                   'Descubra receitas em segundos. Mais tempo para estar com que você ama!',
-              style: TextStyle(
-                color: AppTheme.preto,
-                fontFamily: 'Poppins',
-                fontSize: 20,
-              ),
+              style: TextStyle(color: AppTheme.preto, fontSize: 20),
             ),
           ],
           additionalTileItem: Image.asset(
@@ -77,11 +68,7 @@ class SiteBenefitsWidget extends StatelessWidget {
             TextSpan(
               text:
                   'Navegue sem anúncios e com histórico completo das suas receitas favoritas.',
-              style: TextStyle(
-                color: AppTheme.preto,
-                fontFamily: 'Poppins',
-                fontSize: 20,
-              ),
+              style: TextStyle(color: AppTheme.preto, fontSize: 20),
             ),
           ],
 
@@ -94,11 +81,7 @@ class SiteBenefitsWidget extends StatelessWidget {
             TextSpan(
               text:
                   'Aproveite ao máximo os ingredientes que você já tem. Sem desperdícios!',
-              style: TextStyle(
-                color: AppTheme.preto,
-                fontSize: 20,
-                fontFamily: 'Poppins',
-              ),
+              style: TextStyle(color: AppTheme.preto, fontSize: 20),
             ),
           ],
 
@@ -111,7 +94,6 @@ class SiteBenefitsWidget extends StatelessWidget {
             TextSpan(
               text: 'Plano anual com 2 meses grátis*!',
               style: TextStyle(
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w800,
                 color: AppTheme.preto,
                 fontSize: 20,
@@ -119,11 +101,7 @@ class SiteBenefitsWidget extends StatelessWidget {
             ),
             TextSpan(
               text: ' Com 16% de desconto, você paga menos e aproveite mais.',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: AppTheme.preto,
-                fontSize: 20,
-              ),
+              style: TextStyle(color: AppTheme.preto, fontSize: 20),
             ),
           ],
           hasBorder: false,

@@ -40,17 +40,12 @@ class FooterWidget extends StatelessWidget {
               children: [
                 Text(
                   '© 2025 BiteWise.',
-                  style: TextStyle(
-                    color: AppTheme.branco,
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                  ),
+                  style: TextStyle(color: AppTheme.branco, fontSize: 18),
                 ),
                 Text(
                   'Todos os direitos reservados.',
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontSize: 12,
                     fontWeight: FontWeight.w200,
                   ),
@@ -72,7 +67,6 @@ class FooterWidget extends StatelessWidget {
                   underline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w200,
                   ),
                 ),
@@ -82,7 +76,6 @@ class FooterWidget extends StatelessWidget {
                   underline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w200,
                   ),
                 ),
@@ -94,7 +87,6 @@ class FooterWidget extends StatelessWidget {
                   underline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w200,
                   ),
                 ),
@@ -104,7 +96,6 @@ class FooterWidget extends StatelessWidget {
                   underline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w200,
                   ),
                 ),
@@ -116,7 +107,6 @@ class FooterWidget extends StatelessWidget {
                   underline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w200,
                   ),
                 ),
@@ -125,7 +115,6 @@ class FooterWidget extends StatelessWidget {
                   url: '',
                   underline: false,
                   style: TextStyle(
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w200,
                     color: AppTheme.branco,
                   ),
@@ -147,7 +136,6 @@ class FooterWidget extends StatelessWidget {
         Text(
           topicTitle,
           style: TextStyle(
-            fontFamily: 'Poppins',
             color: AppTheme.preto,
             fontSize: 16,
             fontWeight: FontWeight.w800,
@@ -172,7 +160,6 @@ class FooterWidget extends StatelessWidget {
               'Experimente grátis ou escolha entre os planos e aproveite receitas personalizadas e muito mais!',
               style: TextStyle(
                 color: AppTheme.branco,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
               ),
               textAlign: TextAlign.center,
@@ -181,7 +168,6 @@ class FooterWidget extends StatelessWidget {
               'Plano Anual com 2 MESES GRÁTIS!',
               style: TextStyle(
                 color: AppTheme.branco,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -200,7 +186,6 @@ class FooterWidget extends StatelessWidget {
                   'Escolha e Economize',
                   style: TextStyle(
                     color: AppTheme.preto,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w800,
                     fontSize: 16,
                   ),
@@ -227,7 +212,6 @@ class FooterWidget extends StatelessWidget {
                 'Encontre-nos',
                 style: TextStyle(
                   color: AppTheme.branco,
-                  fontFamily: 'Poppins',
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
@@ -287,7 +271,6 @@ class FooterWidget extends StatelessWidget {
           underline: false,
           style: TextStyle(
             color: AppTheme.branco,
-            fontFamily: 'Poppins',
             fontSize: 16,
             fontWeight: FontWeight.w200,
           ),

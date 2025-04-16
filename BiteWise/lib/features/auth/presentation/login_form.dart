@@ -44,7 +44,6 @@ class LoginForm extends StatelessWidget {
                       Text(
                         'Login',
                         style: TextStyle(
-                          fontFamily: 'Poppins',
                           fontSize: 35,
                           fontWeight: FontWeight.w800,
                           color: AppTheme.preto,
@@ -78,7 +77,7 @@ class LoginForm extends StatelessWidget {
                               'Não possui cadastro?',
                               style: TextStyle(
                                 fontSize: 12,
-                                fontFamily: 'Poppins',
+
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -91,7 +90,7 @@ class LoginForm extends StatelessWidget {
                               'CADASTRE-SE',
                               TextStyle(
                                 color: AppTheme.preto,
-                                fontFamily: 'Poppins',
+
                                 fontSize: 22,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -115,7 +114,7 @@ class LoginForm extends StatelessWidget {
                           'ENTRAR',
                           TextStyle(
                             color: AppTheme.branco,
-                            fontFamily: 'Poppins',
+
                             fontSize: 22,
                             fontWeight: FontWeight.w800,
                           ),
@@ -186,7 +185,7 @@ class LoginForm extends StatelessWidget {
                         'Ou entre com o Google',
                         style: TextStyle(
                           color: AppTheme.preto,
-                          fontFamily: 'Poppins',
+
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
                         ),
@@ -216,7 +215,7 @@ class LoginForm extends StatelessWidget {
           fieldName,
           style: TextStyle(
             color: AppTheme.preto,
-            fontFamily: 'Poppins',
+
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -256,7 +255,7 @@ class LoginForm extends StatelessWidget {
               labelText: labelText,
               labelStyle: TextStyle(
                 color: AppTheme.cinzaNuvem,
-                fontFamily: 'Poppins',
+
                 fontWeight: FontWeight.w300,
               ),
               floatingLabelBehavior: FloatingLabelBehavior.never,

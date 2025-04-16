@@ -2,7 +2,9 @@ import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class PlanSelectionWidget extends StatelessWidget {
-  const PlanSelectionWidget({super.key});
+  final bool showHeaderText;
+
+  const PlanSelectionWidget({super.key, this.showHeaderText = true});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class PlanSelectionWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         spacing: 30,
         children: [
-          _buildHeaderText(),
+          if (showHeaderText) _buildHeaderText(),
           _buildPlanCardsRow(context),
           _buildFooterText(),
         ],
@@ -29,7 +31,6 @@ class PlanSelectionWidget extends StatelessWidget {
         Text(
           'Escolha seu plano',
           style: TextStyle(
-            fontFamily: 'Poppins',
             fontSize: 36,
             fontWeight: FontWeight.w700,
             color: AppTheme.preto,
@@ -37,11 +38,7 @@ class PlanSelectionWidget extends StatelessWidget {
         ),
         Text(
           'Veja os benefícios de cada plano',
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 26,
-            color: AppTheme.preto,
-          ),
+          style: TextStyle(fontSize: 26, color: AppTheme.preto),
         ),
       ],
     );
@@ -155,7 +152,7 @@ class PlanSelectionWidget extends StatelessWidget {
       Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 70),
             decoration: BoxDecoration(
               border: Border.all(
                 width: 1,
@@ -167,15 +164,11 @@ class PlanSelectionWidget extends StatelessWidget {
             padding: EdgeInsets.only(top: 30, left: 10, right: 10),
             child: Text(
               'Experimente o Plano Gratuito, ou liberte sua criatividade com um de nossos planos pagos!',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: AppTheme.preto,
-                fontSize: 18,
-              ),
+              style: TextStyle(color: AppTheme.preto, fontSize: 18),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding: const EdgeInsets.only(top: 35),
             child: ElevatedButton(
               onPressed:
                   () => Navigator.pushNamed(context, '/pagamento/gratis'),
@@ -188,7 +181,6 @@ class PlanSelectionWidget extends StatelessWidget {
               child: const Text(
                 'TESTAR GRÁTIS',
                 style: TextStyle(
-                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w800,
                   color: AppTheme.preto,
                 ),
@@ -276,17 +268,12 @@ class PlanSelectionWidget extends StatelessWidget {
                 children: [
                   TextSpan(
                     text:
-                        'Invista na sua criatividade culinária! Assine o Plano Anual por apenas RS99,90/ano ',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: AppTheme.preto,
-                      fontSize: 18,
-                    ),
+                        r'Invista na sua criatividade culinária! Assine o Plano Anual por apenas R$99,90/ano ',
+                    style: TextStyle(color: AppTheme.preto, fontSize: 18),
                   ),
                   TextSpan(
                     text: 'e aproveite 2 meses grátis*.',
                     style: TextStyle(
-                      fontFamily: 'Poppins',
                       color: AppTheme.preto,
                       fontSize: 18,
                       fontWeight: FontWeight.w800,
@@ -297,7 +284,7 @@ class PlanSelectionWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding: const EdgeInsets.only(top: 55),
             child: ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/pagamento/anual'),
               style: ElevatedButton.styleFrom(
@@ -309,7 +296,6 @@ class PlanSelectionWidget extends StatelessWidget {
               child: const Text(
                 'ASSINE E ECONOMIZE',
                 style: TextStyle(
-                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
                   color: AppTheme.branco,
                 ),
@@ -392,17 +378,13 @@ class PlanSelectionWidget extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(top: 20, left: 10, right: 10),
             child: Text(
-              'Liberte sua criatividade na cozinha! Assine o Plano Mensal por apenas RS9,90/mês',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: AppTheme.preto,
-                fontSize: 18,
-              ),
+              r'Liberte sua criatividade na cozinha! Assine o Plano Mensal por apenas R$9,90/mês',
+              style: TextStyle(color: AppTheme.preto, fontSize: 18),
               textAlign: TextAlign.left,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 65),
+            padding: const EdgeInsets.only(top: 40),
             child: ElevatedButton(
               onPressed:
                   () => Navigator.pushNamed(context, '/pagamento/mensal'),
@@ -415,7 +397,6 @@ class PlanSelectionWidget extends StatelessWidget {
               child: const Text(
                 'ASSINE AGORA',
                 style: TextStyle(
-                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w800,
                   color: AppTheme.preto,
                 ),
@@ -432,11 +413,7 @@ class PlanSelectionWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: const Text(
         '*Ao optar pelo Plano Anual, você economiza o equivalente a 2 meses em comparação ao custo acumulado do Plano Mensal, garantindo o melhor custo-benefício. Essa economia é exclusiva para assinaturas do Plano Anual e não representa um desconto adicional ou promoção separada. A gratuidade referida aplica-se exclusivamente ao cálculo comparativo entre os planos e não é válida de forma independente. Aproveite essa oportunidade única para maximizar os benefícios do BiteWise e economizar enquanto desfruta de uma experiência completa.',
-        style: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 12,
-          color: AppTheme.preto,
-        ),
+        style: TextStyle(fontSize: 12, color: AppTheme.preto),
       ),
     );
   }
@@ -514,7 +491,6 @@ class PlanSelectionCard extends StatelessWidget {
           child: Text(
             firstTitle,
             style: const TextStyle(
-              fontFamily: 'Poppins',
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: AppTheme.preto,
@@ -530,7 +506,6 @@ class PlanSelectionCard extends StatelessWidget {
           child: Text(
             secondTitle,
             style: const TextStyle(
-              fontFamily: 'Poppins',
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: AppTheme.preto,

@@ -29,20 +29,15 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
                 text: 'Planos',
                 url: '/',
                 underline: false,
-                style: TextStyle(
-                  color: AppTheme.branco,
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
-                ),
+                style: TextStyle(color: AppTheme.branco, fontSize: 16),
               ),
               const SizedBox(width: 30), // Espaçamento entre os links
               CustomLink(
                 text: 'Sobre nós',
-                url: '/sobre',
+                url: '/sobre-nos',
                 underline: false,
                 style: TextStyle(
                   color: AppTheme.branco,
-                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w300,
                   fontSize: 16,
                 ),
@@ -54,7 +49,6 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
                 underline: false,
                 style: TextStyle(
                   color: AppTheme.branco,
-                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w300,
                   fontSize: 16,
                 ),
@@ -76,7 +70,6 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
                   underline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w300,
                     fontSize: 16,
                   ),
@@ -92,11 +85,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
                   onPressed: () => Navigator.pushNamed(context, '/cadastro'),
                   child: Text(
                     'Começar gratuitamente',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 16,
-                      color: AppTheme.preto,
-                    ),
+                    style: TextStyle(fontSize: 16, color: AppTheme.preto),
                   ),
                 ),
               ],
