@@ -2,6 +2,7 @@ import 'package:bitewise/features/about/about.dart';
 import 'package:bitewise/features/auth/login.dart';
 import 'package:bitewise/features/auth/signup.dart';
 import 'package:bitewise/features/home/home.dart';
+import 'package:bitewise/features/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
         '/login': (context) => const Login(),
         '/cadastro': (context) => const Signup(),
         '/sobre-nos': (context) => const About(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }
