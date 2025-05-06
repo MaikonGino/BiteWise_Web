@@ -19,7 +19,11 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
           // Logo alinhado à esquerda
           Container(
             margin: const EdgeInsets.only(left: 100),
-            child: Image.asset('images/LOGO.png', width: 100, height: 100),
+            child: Image.asset(
+              'images/shared/LOGO.png',
+              width: 100,
+              height: 100,
+            ),
           ),
 
           // Links centrais

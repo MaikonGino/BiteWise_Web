@@ -14,7 +14,7 @@ class RecipeGenWidget extends StatelessWidget implements PreferredSizeWidget {
       padding: EdgeInsets.symmetric(horizontal: 100),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('../assets/images/BACKGROUND-TOPO.png'),
+          image: AssetImage('/images/shared/BACKGROUND-TOPO.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -93,12 +93,16 @@ class RecipeGenWidget extends StatelessWidget implements PreferredSizeWidget {
           Positioned(
             left: 870,
             top: 340,
-            child: Image.asset('images/LOGO.png', width: 270, height: 270),
+            child: Image.asset(
+              'images/shared/LOGO.png',
+              width: 270,
+              height: 270,
+            ),
           ),
           Positioned(
             right: 870,
             bottom: 190,
-            child: Image.asset('images/SETA.png', width: 300, height: 250),
+            child: Image.asset('images/home/SETA.png', width: 300, height: 250),
           ),
           Positioned(
             top: 480,

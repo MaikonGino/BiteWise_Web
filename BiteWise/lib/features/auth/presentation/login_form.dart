@@ -16,7 +16,7 @@ class LoginForm extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/BACKGROUND-TOPO.png'),
+          image: AssetImage('images/shared/BACKGROUND-TOPO.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -36,7 +36,11 @@ class LoginForm extends StatelessWidget {
               child: Column(
                 spacing: 10,
                 children: [
-                  Image.asset('images/LOGO.png', height: 150, width: 150),
+                  Image.asset(
+                    'images/shared/LOGO.png',
+                    height: 150,
+                    width: 150,
+                  ),
                   Column(
                     spacing: 50,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +178,7 @@ class LoginForm extends StatelessWidget {
                         ),
                       ),
                       child: Image.asset(
-                        'images/LOGO-GOOGLE.png',
+                        'images/auth/LOGO-GOOGLE.png',
                         height: 60,
                         width: 60,
                       ),

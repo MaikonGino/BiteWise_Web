@@ -50,7 +50,7 @@ class PlanSelectionWidget extends StatelessWidget {
       children: [
         _buildPlanCard(
           context: context,
-          imagePath: 'images/GRATUITO.png',
+          imagePath: 'images/shared/GRATUITO.png',
           firstTitle: 'Com o Plano Gratuito, você tem:',
           firstDescription: _buildFreePlanDescription(),
           secondTitle: 'Quer ir além?',
@@ -69,7 +69,7 @@ class PlanSelectionWidget extends StatelessWidget {
         const SizedBox(width: 30),
         _buildPlanCard(
           context: context,
-          imagePath: 'images/ANUAL.png',
+          imagePath: 'images/shared/ANUAL.png',
           firstTitle: 'O melhor custo-benefício para quem ama cozinhar!',
           firstDescription: _buildAnnualPlanDescription(),
           secondTitle: 'Por que escolher o Plano Anual?',
@@ -80,7 +80,7 @@ class PlanSelectionWidget extends StatelessWidget {
         const SizedBox(width: 30),
         _buildPlanCard(
           context: context,
-          imagePath: 'images/MENSAL.png',
+          imagePath: 'images/shared/MENSAL.png',
           firstTitle: 'Mais liberdade na sua cozinha, todos os dias!',
           firstDescription: _buildMonthlyPlanDescription(),
           secondTitle: 'Por que escolher o Plano Mensal?',
