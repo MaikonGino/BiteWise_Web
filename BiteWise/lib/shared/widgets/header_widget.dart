@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:bitewise/shared/widgets/custom_link.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
   const HeaderWidget({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(70);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,10 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
           // Logo alinhado à esquerda
           Container(
             margin: const EdgeInsets.only(left: 100),
-            child: Image.asset(
-              'images/shared/LOGO.png',
-              width: 100,
-              height: 100,
+            child: SvgPicture.asset(
+              'images/shared/LOGO.svg',
+              width: 150,
+              height: 150,
             ),
           ),
 

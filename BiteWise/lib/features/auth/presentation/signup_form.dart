@@ -1,6 +1,7 @@
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:bitewise/shared/widgets/custom_link.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
@@ -186,8 +187,8 @@ class SignupForm extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Image.asset(
-                        'images/auth/LOGO-GOOGLE.png',
+                      child: SvgPicture.asset(
+                        'images/auth/LOGO-GOOGLE.svg',
                         height: 60,
                         width: 60,
                       ),

@@ -1,5 +1,6 @@
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SiteBenefitsWidget extends StatelessWidget {
   const SiteBenefitsWidget({super.key});
@@ -54,8 +55,8 @@ class SiteBenefitsWidget extends StatelessWidget {
               style: TextStyle(color: AppTheme.preto, fontSize: 20),
             ),
           ],
-          additionalTileItem: Image.asset(
-            'images/shared/LOGO.png',
+          additionalTileItem: SvgPicture.asset(
+            'images/shared/LOGO.svg',
             height: 250,
             width: 250,
           ),

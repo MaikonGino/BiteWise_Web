@@ -178,7 +178,7 @@ class LoginForm extends StatelessWidget {
                         ),
                       ),
                       child: Image.asset(
-                        'images/auth/LOGO-GOOGLE.png',
+                        'images/auth/LOGO-GOOGLE.svg',
                         height: 60,
                         width: 60,
                       ),
