@@ -36,19 +36,19 @@ class SiteExplanationWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SiteExplanationSteps(
-                  imagePath: 'images/PASSO-01.png',
+                  imagePath: 'images/home/PASSO-01.png',
                   title: 'Passo 01',
                   description:
                       'Digite seus ingredientes. Encontre receitas que combinam perfeitamente com o que você tem.',
                 ),
                 SiteExplanationSteps(
-                  imagePath: 'images/PASSO-02.png',
+                  imagePath: 'images/home/PASSO-02.png',
                   title: 'Passo 02',
                   description:
                       'Descubra uma receita com os seus ingredientes de casa! Prepare-se para cozinhar uma refeição deliciosa.',
                 ),
                 SiteExplanationSteps(
-                  imagePath: 'images/PASSO-03.png',
+                  imagePath: 'images/home/PASSO-03.png',
                   title: 'Passo 03',
                   description:
                       'Siga os passos da receita. Desfrute do seu prato feito em casa, e com a orientação do BiteWise.',

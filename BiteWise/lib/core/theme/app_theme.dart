@@ -10,4 +10,5 @@ class AppTheme {
   static const Color aquamarinaMedia = Color.fromRGBO(102, 205, 175, 0.75);
   static const Color vermelhoSecundario = Color.fromRGBO(192, 57, 43, 1);
   static const Color cinzaNuvem = Color.fromRGBO(177, 180, 181, 1);
+  static const Color cinzaClaro = Color.fromRGBO(229, 231, 233, 1);
 }

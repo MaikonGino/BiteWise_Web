@@ -1,5 +1,6 @@
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SiteBenefitsWidget extends StatelessWidget {
   const SiteBenefitsWidget({super.key});
@@ -46,7 +47,7 @@ class SiteBenefitsWidget extends StatelessWidget {
       children: [
         _buildBenefitTile(
           context: context,
-          imagePath: 'images/ITEM-1.png',
+          imagePath: 'images/home/ITEM-1.png',
           tileText: [
             TextSpan(
               text:
@@ -54,8 +55,8 @@ class SiteBenefitsWidget extends StatelessWidget {
               style: TextStyle(color: AppTheme.preto, fontSize: 20),
             ),
           ],
-          additionalTileItem: Image.asset(
-            'images/LOGO.png',
+          additionalTileItem: SvgPicture.asset(
+            'images/shared/LOGO.svg',
             height: 250,
             width: 250,
           ),
@@ -63,7 +64,7 @@ class SiteBenefitsWidget extends StatelessWidget {
         ),
         _buildBenefitTile(
           context: context,
-          imagePath: 'images/ITEM-2.png',
+          imagePath: 'images/home/ITEM-2.png',
           tileText: [
             TextSpan(
               text:
@@ -76,7 +77,7 @@ class SiteBenefitsWidget extends StatelessWidget {
         ),
         _buildBenefitTile(
           context: context,
-          imagePath: 'images/ITEM-3.png',
+          imagePath: 'images/home/ITEM-3.png',
           tileText: [
             TextSpan(
               text:
@@ -89,7 +90,7 @@ class SiteBenefitsWidget extends StatelessWidget {
         ),
         _buildBenefitTile(
           context: context,
-          imagePath: 'images/ITEM-4.png',
+          imagePath: 'images/home/ITEM-4.png',
           tileText: [
             TextSpan(
               text: 'Plano anual com 2 meses grátis*!',

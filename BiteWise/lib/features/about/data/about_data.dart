@@ -125,7 +125,7 @@ class Paragraph extends StatelessWidget {
 List<SectionItem> getAboutSectionItems() {
   return [
     SectionItem(
-      imageUrl: 'images/ELEMENTO-01.png',
+      imageUrl: 'images/about/ELEMENTO-01.png',
       textItems: [
         const SectionTitle(text: 'Nossa essência'),
         Container(
@@ -183,7 +183,7 @@ List<SectionItem> getAboutSectionItems() {
       reverseLayout: true,
     ),
     SectionItem(
-      imageUrl: 'images/ELEMENTO-02.png',
+      imageUrl: 'images/about/ELEMENTO-02.png',
       textItems: [
         const SectionTitle(text: 'Por que escolher o BiteWise?'),
         Container(
@@ -225,7 +225,7 @@ List<SectionItem> getAboutSectionItems() {
       reverseLayout: false,
     ),
     SectionItem(
-      imageUrl: 'images/ELEMENTO-03.png',
+      imageUrl: 'images/about/ELEMENTO-03.png',
       textItems: [
         const SectionTitle(
           text: 'Transformando a culinária com tecnologia',
@@ -269,7 +269,7 @@ List<SectionItem> getAboutSectionItems() {
       reverseLayout: true,
     ),
     SectionItem(
-      imageUrl: 'images/ELEMENTO-04.png',
+      imageUrl: 'images/about/ELEMENTO-04.png',
       textItems: [
         const SectionTitle(text: 'Para todos os gostos e bolsos'),
         Container(

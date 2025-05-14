@@ -1,6 +1,7 @@
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:bitewise/shared/widgets/custom_link.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
@@ -17,7 +18,7 @@ class SignupForm extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/BACKGROUND-TOPO.png'),
+          image: AssetImage('images/shared/BACKGROUND-TOPO.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -37,7 +38,11 @@ class SignupForm extends StatelessWidget {
               child: Column(
                 spacing: 10,
                 children: [
-                  Image.asset('images/LOGO.png', height: 150, width: 150),
+                  Image.asset(
+                    'images/shared/LOGO.png',
+                    height: 150,
+                    width: 150,
+                  ),
                   Column(
                     spacing: 50,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +106,12 @@ class SignupForm extends StatelessWidget {
                                 CustomLink(
                                   text: 'Clique aqui',
                                   url: '/login',
-                                  underline: false,
+                                  onTap:
+                                      () => Navigator.pushNamed(
+                                        context,
+                                        '/login',
+                                      ),
+                                  hasUnderline: false,
                                   style: TextStyle(
                                     fontSize: 12,
 
@@ -182,8 +192,8 @@ class SignupForm extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Image.asset(
-                        'images/LOGO-GOOGLE.png',
+                      child: SvgPicture.asset(
+                        'images/auth/LOGO-GOOGLE.svg',
                         height: 60,
                         width: 60,
                       ),

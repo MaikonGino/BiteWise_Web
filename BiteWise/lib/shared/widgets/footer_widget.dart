@@ -33,7 +33,7 @@ class FooterWidget extends StatelessWidget {
         Row(
           spacing: 20,
           children: [
-            Image.asset('images/LOGO.png', height: 100, width: 100),
+            Image.asset('images/shared/LOGO.png', height: 100, width: 100),
             Column(
               spacing: 6,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +64,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Planos e Assinaturas',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -73,7 +73,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'FAQ',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -84,7 +84,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Sobre o BiteWise',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -93,7 +93,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Contato e Suporte',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -104,7 +104,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Política de privacidade',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -113,7 +113,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Termos de Uso',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     fontWeight: FontWeight.w200,
                     color: AppTheme.branco,
@@ -155,7 +155,7 @@ class FooterWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 30,
           children: [
-            Image.asset('images/LOGO.png', height: 200, width: 200),
+            Image.asset('images/shared/LOGO.png', height: 200, width: 200),
             Text(
               'Experimente grátis ou escolha entre os planos e aproveite receitas personalizadas e muito mais!',
               style: TextStyle(
@@ -222,19 +222,19 @@ class FooterWidget extends StatelessWidget {
                   spacing: 45,
                   children: [
                     _buildSocialMediaButton(
-                      'images/TIKTOK.png',
+                      'images/shared/TIKTOK.png',
                       'TikTok',
                       'https://www.tiktok.com/login?lang=pt-BR&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dpt-BR',
                       context,
                     ),
                     _buildSocialMediaButton(
-                      'images/INSTAGRAM.png',
+                      'images/shared/INSTAGRAM.png',
                       'Instagram',
                       'https://www.instagram.com/',
                       context,
                     ),
                     _buildSocialMediaButton(
-                      'images/TWITTER.png',
+                      'images/shared/TWITTER.png',
                       'X / Twitter',
                       'https://x.com/?lang=pt',
                       context,
@@ -268,7 +268,7 @@ class FooterWidget extends StatelessWidget {
         CustomLink(
           text: name,
           url: url,
-          underline: false,
+          hasUnderline: false,
           style: TextStyle(
             color: AppTheme.branco,
             fontSize: 16,
