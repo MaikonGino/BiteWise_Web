@@ -1,5 +1,5 @@
 import 'package:bitewise/features/about/domain/section_item.dart';
-import 'package:bitewise/features/about/presentation/flexible_item.dart';
+import 'package:bitewise/features/about/presentation/widgets/flexible_item.dart';
 import 'package:flutter/material.dart';
 
 class SectionList extends StatelessWidget {

@@ -64,7 +64,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Planos e Assinaturas',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -73,7 +73,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'FAQ',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -84,7 +84,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Sobre o BiteWise',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -93,7 +93,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Contato e Suporte',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -104,7 +104,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Política de privacidade',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
@@ -113,7 +113,7 @@ class FooterWidget extends StatelessWidget {
                 CustomLink(
                   text: 'Termos de Uso',
                   url: '',
-                  underline: false,
+                  hasUnderline: false,
                   style: TextStyle(
                     fontWeight: FontWeight.w200,
                     color: AppTheme.branco,
@@ -268,7 +268,7 @@ class FooterWidget extends StatelessWidget {
         CustomLink(
           text: name,
           url: url,
-          underline: false,
+          hasUnderline: false,
           style: TextStyle(
             color: AppTheme.branco,
             fontSize: 16,

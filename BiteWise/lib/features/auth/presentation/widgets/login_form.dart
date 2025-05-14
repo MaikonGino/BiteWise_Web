@@ -1,5 +1,6 @@
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -90,7 +91,7 @@ class LoginForm extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 2),
                             child: _buildLoginButton(
                               context,
-                              '/cadastro',
+                              '/register',
                               'CADASTRE-SE',
                               TextStyle(
                                 color: AppTheme.preto,
@@ -177,7 +178,7 @@ class LoginForm extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Image.asset(
+                      child: SvgPicture.asset(
                         'images/auth/LOGO-GOOGLE.svg',
                         height: 60,
                         width: 60,

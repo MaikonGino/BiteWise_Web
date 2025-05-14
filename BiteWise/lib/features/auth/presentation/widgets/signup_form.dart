@@ -18,7 +18,7 @@ class SignupForm extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/BACKGROUND-TOPO.png'),
+          image: AssetImage('images/shared/BACKGROUND-TOPO.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -106,7 +106,12 @@ class SignupForm extends StatelessWidget {
                                 CustomLink(
                                   text: 'Clique aqui',
                                   url: '/login',
-                                  underline: false,
+                                  onTap:
+                                      () => Navigator.pushNamed(
+                                        context,
+                                        '/login',
+                                      ),
+                                  hasUnderline: false,
                                   style: TextStyle(
                                     fontSize: 12,
 

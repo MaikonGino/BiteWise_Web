@@ -1,10 +1,9 @@
 import 'package:bitewise/core/theme/app_theme.dart';
 import 'package:bitewise/shared/widgets/plan_selection.dart';
-import 'package:bitewise/features/home/presentation/site_benefits.dart';
+import 'package:bitewise/features/home/presentation/widgets/site_benefits.dart';
 import 'package:bitewise/shared/widgets/footer_widget.dart';
-import 'package:bitewise/shared/widgets/header_widget.dart';
-import 'package:bitewise/features/home/presentation/recipe_generation.dart';
-import 'package:bitewise/features/home/presentation/site_explanation.dart';
+import 'package:bitewise/features/home/presentation/widgets/recipe_generation.dart';
+import 'package:bitewise/features/home/presentation/widgets/site_explanation.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -12,10 +11,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppTheme.branco,
-      appBar: HeaderWidget(),
-      body: SingleChildScrollView(
+    return Container(
+      color: AppTheme.branco,
+      child: SingleChildScrollView(
         child: Column(
           children: [
             RecipeGenWidget(),

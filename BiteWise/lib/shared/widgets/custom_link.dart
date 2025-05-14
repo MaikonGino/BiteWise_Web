@@ -5,7 +5,8 @@ class CustomLink extends StatelessWidget {
   final String url;
   final TextStyle? style;
   final Color? color;
-  final bool underline;
+  final bool hasUnderline;
+  final VoidCallback? onTap;
 
   const CustomLink({
     super.key,
@@ -13,7 +14,8 @@ class CustomLink extends StatelessWidget {
     required this.url,
     this.style,
     this.color,
-    required this.underline,
+    required this.hasUnderline,
+    this.onTap,
   });
 
   @override
@@ -21,7 +23,7 @@ class CustomLink extends StatelessWidget {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.pushNamed(context, url),
+        onTap: onTap,
         child: Text(
           text,
           style:
@@ -29,7 +31,9 @@ class CustomLink extends StatelessWidget {
               TextStyle(
                 color: color ?? Colors.blue,
                 decoration:
-                    underline ? TextDecoration.underline : TextDecoration.none,
+                    hasUnderline
+                        ? TextDecoration.underline
+                        : TextDecoration.none,
               ),
         ),
       ),
