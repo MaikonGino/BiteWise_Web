@@ -1,3 +1,4 @@
+import 'package:bitewise/features/about/about.dart';
 import 'package:bitewise/features/auth/login.dart';
 import 'package:bitewise/features/auth/signup.dart';
 import 'package:bitewise/features/home/home.dart';
@@ -22,12 +23,14 @@ class _MyAppState extends State<MyApp> {
       title: 'BiteWise',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: 'Poppins',
       ),
       initialRoute: '/',
       routes: {
         '/': (context) => const Home(),
         '/login': (context) => const Login(),
         '/cadastro': (context) => const Signup(),
+        '/sobre-nos': (context) => const About(),
       },
     );
   }

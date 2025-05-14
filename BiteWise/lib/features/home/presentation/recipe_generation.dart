@@ -30,11 +30,7 @@ class RecipeGenWidget extends StatelessWidget implements PreferredSizeWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'A sua receita perfeita em instantes!',
-                  style: TextStyle(
-                    fontSize: 60,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 60, fontWeight: FontWeight.w500),
                 ),
               ),
               Padding(
@@ -47,7 +43,6 @@ class RecipeGenWidget extends StatelessWidget implements PreferredSizeWidget {
                       color: Color(0xFFC0392B),
                       fontSize: 20,
                       fontWeight: FontWeight.w200,
-                      fontFamily: "Poppins",
                     ),
                   ),
                 ),
@@ -86,7 +81,7 @@ class RecipeGenWidget extends StatelessWidget implements PreferredSizeWidget {
                     'Encontre sua próxima refeição',
                     style: TextStyle(
                       color: Color(0xFFFFFFFF),
-                      fontFamily: 'Poppins',
+
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
                     ),
@@ -112,11 +107,7 @@ class RecipeGenWidget extends StatelessWidget implements PreferredSizeWidget {
               width: 450,
               child: Text(
                 'Digite os ingredientes que você tem em casa, e deixe que fazemos a mágica para você!',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               ),
             ),
           ),

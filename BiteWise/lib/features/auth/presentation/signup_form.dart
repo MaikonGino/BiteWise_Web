@@ -45,7 +45,6 @@ class SignupForm extends StatelessWidget {
                       Text(
                         'Cadastro',
                         style: TextStyle(
-                          fontFamily: 'Poppins',
                           fontSize: 35,
                           fontWeight: FontWeight.w800,
                           color: AppTheme.preto,
@@ -95,7 +94,7 @@ class SignupForm extends StatelessWidget {
                                   'Já tem uma conta?',
                                   style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: 'Poppins',
+
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -105,7 +104,7 @@ class SignupForm extends StatelessWidget {
                                   underline: false,
                                   style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: 'Poppins',
+
                                     fontWeight: FontWeight.w600,
                                     color: AppTheme.verdeMarProfundo,
                                   ),
@@ -121,7 +120,7 @@ class SignupForm extends StatelessWidget {
                               'CRIAR CONTA',
                               TextStyle(
                                 color: AppTheme.branco,
-                                fontFamily: 'Poppins',
+
                                 fontSize: 22,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -195,7 +194,7 @@ class SignupForm extends StatelessWidget {
                         'Ou entre com o Google',
                         style: TextStyle(
                           color: AppTheme.preto,
-                          fontFamily: 'Poppins',
+
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
                         ),
@@ -225,7 +224,7 @@ class SignupForm extends StatelessWidget {
           fieldName,
           style: TextStyle(
             color: AppTheme.preto,
-            fontFamily: 'Poppins',
+
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -264,7 +263,6 @@ class SignupForm extends StatelessWidget {
               fillColor: AppTheme.branco,
               labelText: labelText,
               labelStyle: TextStyle(
-                fontFamily: 'Poppins',
                 color: AppTheme.cinzaNuvem,
                 fontWeight: FontWeight.w300,
               ),

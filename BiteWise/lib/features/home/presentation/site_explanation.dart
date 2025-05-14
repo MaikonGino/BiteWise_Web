@@ -25,11 +25,7 @@ class SiteExplanationWidget extends StatelessWidget {
             child: Text(
               'Como o BiteWise funciona?',
               textAlign: TextAlign.left,
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 34,
-                fontWeight: FontWeight.w700,
-              ),
+              style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700),
             ),
           ),
           Padding(
@@ -99,7 +95,6 @@ class SiteExplanationSteps extends StatelessWidget {
                   fontSize: 30,
                   fontWeight: FontWeight.w600,
                   color: AppTheme.preto,
-                  fontFamily: 'Poppins',
                 ),
           ),
           const SizedBox(height: 4),
@@ -110,7 +105,6 @@ class SiteExplanationSteps extends StatelessWidget {
               fontSize: 20,
               color: AppTheme.preto,
               fontWeight: FontWeight.w300,
-              fontFamily: 'Poppins',
             ),
           ),
         ],

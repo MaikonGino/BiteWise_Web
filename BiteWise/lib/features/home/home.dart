@@ -1,5 +1,5 @@
 import 'package:bitewise/core/theme/app_theme.dart';
-import 'package:bitewise/features/home/presentation/plan_selection.dart';
+import 'package:bitewise/shared/widgets/plan_selection.dart';
 import 'package:bitewise/features/home/presentation/site_benefits.dart';
 import 'package:bitewise/shared/widgets/footer_widget.dart';
 import 'package:bitewise/shared/widgets/header_widget.dart';
