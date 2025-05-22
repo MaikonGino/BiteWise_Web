@@ -180,7 +180,7 @@ List<SectionItem> getAboutSectionItems() {
           ),
         ),
       ],
-      reverseLayout: true,
+      reverseLayout: false,
     ),
     SectionItem(
       imageUrl: 'images/about/ELEMENTO-02.png',
@@ -222,7 +222,7 @@ List<SectionItem> getAboutSectionItems() {
           ),
         ),
       ],
-      reverseLayout: false,
+      reverseLayout: true,
     ),
     SectionItem(
       imageUrl: 'images/about/ELEMENTO-03.png',
@@ -266,7 +266,7 @@ List<SectionItem> getAboutSectionItems() {
           ),
         ),
       ],
-      reverseLayout: true,
+      reverseLayout: false,
     ),
     SectionItem(
       imageUrl: 'images/about/ELEMENTO-04.png',
@@ -310,7 +310,7 @@ List<SectionItem> getAboutSectionItems() {
           ),
         ),
       ],
-      reverseLayout: false,
+      reverseLayout: true,
     ),
   ];
 }
