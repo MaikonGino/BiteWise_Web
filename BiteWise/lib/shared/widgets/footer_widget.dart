@@ -1,52 +1,101 @@
-import 'package:bitewise/core/theme/app_theme.dart';
-import 'package:bitewise/shared/widgets/custom_link.dart';
+import 'package:bitewise/core/theme/app_theme.dart'; // Presumindo que AppTheme está aqui
+import 'package:bitewise/shared/widgets/custom_link.dart'; // Presumindo que CustomLink está aqui
 import 'package:flutter/material.dart';
+// Para links externos, considere usar o pacote url_launcher:
+// import 'package:url_launcher/url_launcher.dart';
 
 class FooterWidget extends StatelessWidget {
   const FooterWidget({super.key});
 
+  // Define um breakpoint para alternar entre layouts
+  static const double _tabletBreakpoint = 768.0;
+
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final bool isSmallScreen = screenWidth < _tabletBreakpoint;
+
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      height: 430,
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: isSmallScreen ? 30 : 20,
+      ), // Padding vertical ajustado
       width: double.infinity,
       decoration: BoxDecoration(color: AppTheme.verdeMarProfundo),
-      child: _buildFooterSectionRow(context),
+      child: _buildFooterLayout(context, isSmallScreen),
     );
   }
 
-  Widget _buildFooterSectionRow(BuildContext context) {
-    return Row(
-      children: [
-        _buildLeftSectionContent(),
-        _buildMidSectionContent(context),
-        _buildRightSectionContent(context),
-      ],
-    );
+  Widget _buildFooterLayout(BuildContext context, bool isSmallScreen) {
+    if (isSmallScreen) {
+      // Layout em Coluna para telas pequenas - SEM A SEÇÃO DO MEIO
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment:
+            CrossAxisAlignment.center, // Centraliza as seções na coluna
+        children: [
+          _buildLeftSectionContent(context, isSmallScreen),
+          const SizedBox(
+            height: 30,
+          ), // Espaçador entre a seção esquerda e direita
+          _buildRightSectionContent(context, isSmallScreen),
+        ],
+      );
+    } else {
+      // Layout em Linha para telas maiores - COM TODAS AS SEÇÕES
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 3, // Ajuste os fatores flex conforme necessário
+            child: _buildLeftSectionContent(context, isSmallScreen),
+          ),
+          Expanded(
+            flex: 4, // Ajuste os fatores flex conforme necessário
+            child: _buildMidSectionContent(context, isSmallScreen),
+          ),
+          Expanded(
+            flex: 2, // Ajuste os fatores flex conforme necessário
+            child: _buildRightSectionContent(context, isSmallScreen),
+          ),
+        ],
+      );
+    }
   }
 
-  Widget _buildLeftSectionContent() {
+  Widget _buildLeftSectionContent(BuildContext context, bool isSmallScreen) {
     return FooterSection(
-      sectionWidth: 370,
+      isSmallScreen: isSmallScreen,
+      // crossAxisAlignment: CrossAxisAlignment.start, // O padrão já é start para telas não pequenas
       sectionContent: [
         Row(
-          spacing: 20,
+          mainAxisAlignment:
+              isSmallScreen
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.start,
           children: [
-            Image.asset('images/shared/LOGO.png', height: 100, width: 100),
+            Image.asset(
+              'images/shared/LOGO.png',
+              height: isSmallScreen ? 70 : 100,
+              width: isSmallScreen ? 70 : 100,
+            ),
+            const SizedBox(width: 20),
             Column(
-              spacing: 6,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '© 2025 BiteWise.',
-                  style: TextStyle(color: AppTheme.branco, fontSize: 18),
+                  style: TextStyle(
+                    color: AppTheme.branco,
+                    fontSize: isSmallScreen ? 15 : 18,
+                  ),
                 ),
+                const SizedBox(height: 6),
                 Text(
                   'Todos os direitos reservados.',
                   style: TextStyle(
                     color: AppTheme.branco,
-                    fontSize: 12,
+                    fontSize: isSmallScreen ? 10 : 12,
                     fontWeight: FontWeight.w200,
                   ),
                 ),
@@ -57,123 +106,169 @@ class FooterWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
-            spacing: 20,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment:
+                isSmallScreen
+                    ? CrossAxisAlignment.center
+                    : CrossAxisAlignment.start,
             children: [
-              _leftSectionTopic('Produto', [
+              _leftSectionTopic(context, 'Produto', [
                 CustomLink(
                   text: 'Planos e Assinaturas',
-                  url: '',
+                  url: '', // Defina a URL apropriada
                   hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
+                    fontSize: isSmallScreen ? 12 : 14,
                   ),
                 ),
                 CustomLink(
                   text: 'FAQ',
-                  url: '',
+                  url: '', // Defina a URL apropriada
                   hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
+                    fontSize: isSmallScreen ? 12 : 14,
                   ),
                 ),
-              ]),
-              _leftSectionTopic('Sobre nós', [
+              ], isSmallScreen),
+              const SizedBox(height: 20),
+              _leftSectionTopic(context, 'Sobre nós', [
                 CustomLink(
                   text: 'Sobre o BiteWise',
-                  url: '',
+                  url: '', // Defina a URL apropriada
                   hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
+                    fontSize: isSmallScreen ? 12 : 14,
                   ),
                 ),
                 CustomLink(
                   text: 'Contato e Suporte',
-                  url: '',
+                  url: '', // Defina a URL apropriada
                   hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
+                    fontSize: isSmallScreen ? 12 : 14,
                   ),
                 ),
-              ]),
-              _leftSectionTopic('Condições', [
+              ], isSmallScreen),
+              const SizedBox(height: 20),
+              _leftSectionTopic(context, 'Condições', [
                 CustomLink(
                   text: 'Política de privacidade',
-                  url: '',
+                  url: '', // Defina a URL apropriada
                   hasUnderline: false,
                   style: TextStyle(
                     color: AppTheme.branco,
                     fontWeight: FontWeight.w200,
+                    fontSize: isSmallScreen ? 12 : 14,
                   ),
                 ),
                 CustomLink(
                   text: 'Termos de Uso',
-                  url: '',
+                  url: '', // Defina a URL apropriada
                   hasUnderline: false,
                   style: TextStyle(
                     fontWeight: FontWeight.w200,
                     color: AppTheme.branco,
+                    fontSize: isSmallScreen ? 12 : 14,
                   ),
                 ),
-              ]),
+              ], isSmallScreen),
             ],
           ),
         ),
       ],
-      hasBorder: true,
+      hasBorder:
+          true, // Borda lateral para telas grandes, borda inferior para pequenas se desejado
     );
   }
 
-  Widget _leftSectionTopic(String topicTitle, List<CustomLink> topicOptions) {
+  Widget _leftSectionTopic(
+    BuildContext context,
+    String topicTitle,
+    List<Widget> topicOptions,
+    bool isSmallScreen,
+  ) {
     return Column(
-      spacing: 6,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          isSmallScreen ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
           topicTitle,
           style: TextStyle(
-            color: AppTheme.preto,
-            fontSize: 16,
+            color:
+                AppTheme
+                    .branco, // Alterado de AppTheme.preto para melhor contraste
+            fontSize: isSmallScreen ? 14 : 16,
             fontWeight: FontWeight.w800,
           ),
+          textAlign: isSmallScreen ? TextAlign.center : TextAlign.start,
         ),
-        ...topicOptions,
+        const SizedBox(height: 8), // Espaçamento aumentado ligeiramente
+        ...topicOptions.map(
+          (option) => Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 4.0,
+            ), // Espaçamento entre links
+            child: option,
+          ),
+        ),
       ],
     );
   }
 
-  Widget _buildMidSectionContent(BuildContext context) {
+  Widget _buildMidSectionContent(BuildContext context, bool isSmallScreen) {
+    // Este widget não será exibido em telas pequenas devido à lógica em _buildFooterLayout
     return FooterSection(
-      sectionWidth: 600,
+      isSmallScreen: isSmallScreen,
+      crossAxisAlignment: CrossAxisAlignment.center,
       sectionContent: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 30,
           children: [
-            Image.asset('images/shared/LOGO.png', height: 200, width: 200),
-            Text(
-              'Experimente grátis ou escolha entre os planos e aproveite receitas personalizadas e muito mais!',
-              style: TextStyle(
-                color: AppTheme.branco,
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
+            Image.asset(
+              'images/shared/LOGO.png',
+              height:
+                  isSmallScreen
+                      ? 120
+                      : 200, // Ajustes aqui ainda são relevantes se um dia for exibido em tela pequena
+              width: isSmallScreen ? 120 : 200,
             ),
+            SizedBox(height: isSmallScreen ? 20 : 30),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: isSmallScreen ? 16.0 : 0,
+              ),
+              child: Text(
+                'Experimente grátis ou escolha entre os planos e aproveite receitas personalizadas e muito mais!',
+                style: TextStyle(
+                  color: AppTheme.branco,
+                  fontWeight: FontWeight.w500,
+                  fontSize: isSmallScreen ? 13 : 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(height: isSmallScreen ? 15 : 30),
             Text(
               'Plano Anual com 2 MESES GRÁTIS!',
               style: TextStyle(
                 color: AppTheme.branco,
                 fontWeight: FontWeight.w800,
+                fontSize: isSmallScreen ? 15 : 18,
               ),
+              textAlign: TextAlign.center,
             ),
+            SizedBox(height: isSmallScreen ? 20 : 30),
             SizedBox(
-              height: 50,
-              width: 230,
+              height: isSmallScreen ? 45 : 50,
+              width: isSmallScreen ? 200 : 230,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -181,13 +276,17 @@ class FooterWidget extends StatelessWidget {
                   ),
                   backgroundColor: AppTheme.laranjaMel,
                 ),
-                onPressed: () => Navigator.pushNamed(context, '/'),
+                onPressed:
+                    () => Navigator.pushNamed(
+                      context,
+                      '/',
+                    ), // Verifique se a rota '/' está correta
                 child: Text(
                   'Escolha e Economize',
                   style: TextStyle(
                     color: AppTheme.preto,
                     fontWeight: FontWeight.w800,
-                    fontSize: 16,
+                    fontSize: isSmallScreen ? 14 : 16,
                   ),
                 ),
               ),
@@ -199,45 +298,62 @@ class FooterWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildRightSectionContent(BuildContext context) {
+  Widget _buildRightSectionContent(BuildContext context, bool isSmallScreen) {
     return FooterSection(
-      sectionWidth: 300,
+      isSmallScreen: isSmallScreen,
+      crossAxisAlignment:
+          isSmallScreen ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       sectionContent: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+          padding: EdgeInsets.symmetric(
+            horizontal: isSmallScreen ? 0 : 20,
+            vertical: 25,
+          ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment:
+                isSmallScreen
+                    ? CrossAxisAlignment.center
+                    : CrossAxisAlignment.start,
             children: [
               Text(
                 'Encontre-nos',
                 style: TextStyle(
                   color: AppTheme.branco,
-                  fontSize: 20,
+                  fontSize: isSmallScreen ? 18 : 20,
                   fontWeight: FontWeight.w600,
                 ),
+                textAlign: isSmallScreen ? TextAlign.center : TextAlign.start,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 50),
+                padding: EdgeInsets.only(top: isSmallScreen ? 30 : 50),
                 child: Column(
-                  spacing: 45,
                   children: [
                     _buildSocialMediaButton(
+                      context,
                       'images/shared/TIKTOK.png',
                       'TikTok',
                       'https://www.tiktok.com/login?lang=pt-BR&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dpt-BR',
-                      context,
+                      isSmallScreen,
                     ),
+                    SizedBox(
+                      height: isSmallScreen ? 20 : 35,
+                    ), // Espaçamento ajustado
                     _buildSocialMediaButton(
+                      context,
                       'images/shared/INSTAGRAM.png',
                       'Instagram',
                       'https://www.instagram.com/',
-                      context,
+                      isSmallScreen,
                     ),
+                    SizedBox(
+                      height: isSmallScreen ? 20 : 35,
+                    ), // Espaçamento ajustado
                     _buildSocialMediaButton(
+                      context,
                       'images/shared/TWITTER.png',
                       'X / Twitter',
                       'https://x.com/?lang=pt',
-                      context,
+                      isSmallScreen,
                     ),
                   ],
                 ),
@@ -246,32 +362,51 @@ class FooterWidget extends StatelessWidget {
           ),
         ),
       ],
-      hasBorder: false,
+      hasBorder: false, // Originalmente false, mantido
     );
   }
 
   Widget _buildSocialMediaButton(
+    BuildContext context,
     String imagePath,
     String name,
     String url,
-    BuildContext context,
+    bool isSmallScreen,
   ) {
+    // Para abrir links externos, use o pacote url_launcher:
+    // Future<void> _launchUrl() async {
+    //   if (!await launchUrl(Uri.parse(url))) {
+    //     throw Exception('Could not launch $url');
+    //   }
+    // }
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.start,
-      spacing: 30,
+      mainAxisAlignment:
+          isSmallScreen ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         InkWell(
-          onTap: () => Navigator.pushNamed(context, url),
-          child: Image.asset(imagePath, height: 70, width: 70),
+          // onTap: _launchUrl, // Use com url_launcher
+          onTap: () {
+            // Provisório: Navigator.pushNamed não é ideal para URLs externas.
+            // Considere usar o pacote url_launcher.
+            print('Tentando navegar para: $url');
+            // Se url for uma rota interna: Navigator.pushNamed(context, url);
+          },
+          child: Image.asset(
+            imagePath,
+            height: isSmallScreen ? 40 : 60, // Tamanho ajustado
+            width: isSmallScreen ? 40 : 60, // Tamanho ajustado
+          ),
         ),
+        SizedBox(width: isSmallScreen ? 15 : 20), // Espaçamento ajustado
         CustomLink(
           text: name,
-          url: url,
+          url: url, // CustomLink também pode usar url_launcher internamente
           hasUnderline: false,
           style: TextStyle(
             color: AppTheme.branco,
-            fontSize: 16,
+            fontSize: isSmallScreen ? 13 : 16,
             fontWeight: FontWeight.w200,
           ),
         ),
@@ -281,35 +416,60 @@ class FooterWidget extends StatelessWidget {
 }
 
 class FooterSection extends StatelessWidget {
-  final double sectionWidth;
   final List<Widget> sectionContent;
   final bool hasBorder;
+  final bool isSmallScreen;
+  final CrossAxisAlignment?
+  crossAxisAlignment; // Para alinhar o conteúdo da coluna interna
 
   const FooterSection({
     super.key,
-    required this.sectionWidth,
     required this.sectionContent,
     this.hasBorder = true,
+    required this.isSmallScreen,
+    this.crossAxisAlignment,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width:
+          isSmallScreen
+              ? double.infinity
+              : null, // Ocupa toda a largura em telas pequenas
+      padding:
+          isSmallScreen && hasBorder
+              ? const EdgeInsets.only(bottom: 20)
+              : EdgeInsets
+                  .zero, // Adiciona padding inferior se houver borda em tela pequena
       decoration: BoxDecoration(
         border:
-            hasBorder
+            !isSmallScreen && hasBorder
                 ? Border(
                   right: BorderSide(
                     width: 1,
-                    color: Color(0xFFE5E7E9).withValues(alpha: 0.75),
+                    // Corrigido: .withAlpha espera um int de 0-255. (0.75 * 255).round() = 191
+                    color: const Color(0xFFE5E7E9).withAlpha(191),
                   ),
                 )
-                : null,
+                : (isSmallScreen &&
+                        hasBorder // Opcional: borda inferior em telas pequenas
+                    ? Border(
+                      bottom: BorderSide(
+                        width: 1,
+                        color: const Color(0xFFE5E7E9).withAlpha(191),
+                      ),
+                    )
+                    : null),
       ),
-      width: sectionWidth,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [...sectionContent],
+        // Define o alinhamento cruzado da coluna interna da seção
+        crossAxisAlignment:
+            crossAxisAlignment ??
+            (isSmallScreen
+                ? CrossAxisAlignment.center
+                : CrossAxisAlignment.start),
+        children: sectionContent,
       ),
     );
   }
