@@ -2,7 +2,6 @@ import 'package:bitewise/features/about/presentation/screens/about_screen.dart';
 import 'package:bitewise/features/auth/presentation/screens/login.dart';
 import 'package:bitewise/features/auth/presentation/screens/signup.dart';
 import 'package:bitewise/features/home/presentation/screens/home_screen.dart';
-import 'package:bitewise/features/profile/presentation/screens/profile.dart';
 import 'package:bitewise/shared/shell/app_shell.dart'; // Assuming AppShell is in this path
 import 'package:flutter/foundation.dart'; // For kDebugMode
 import 'package:flutter/material.dart';
@@ -109,9 +108,6 @@ class MyApp extends StatelessWidget {
         break;
       case AppRoutes.login:
         pageContent = const Login();
-        break;
-      case AppRoutes.profile:
-        pageContent = const ProfilePage();
         break;
       case AppRoutes.register:
         pageContent = const Signup();
