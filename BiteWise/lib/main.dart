@@ -16,19 +16,36 @@ class BiteWiseApp extends StatelessWidget {
       title: 'BiteWise App',
       theme: ThemeData(
         primarySwatch: Colors.orange,
+        fontFamily: 'Poppins', // Define a fonte Poppins como padrão (da documentação)
       ),
-      home: FutureBuilder<bool>(
-        future: AuthService().isAuthenticated(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Scaffold(body: Center(child: CircularProgressIndicator()));
-          }
-          if (snapshot.hasData && snapshot.data == true) {
-            return const HomeScreen(); // Se autenticado, vai para Home
-          }
-          return const LoginScreen(); // Senão, vai para Login
-        },
-      ),
+      home: const AuthCheck(),
+    );
+  }
+}
+
+// Widget que verifica se o usuário está logado
+class AuthCheck extends StatelessWidget {
+  const AuthCheck({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final AuthService authService = AuthService();
+
+    return FutureBuilder<bool>(
+      future: authService.isAuthenticated(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        }
+
+        if (snapshot.hasData && snapshot.data == true) {
+          // Usuário está logado
+          return const HomeScreen();
+        }
+
+        // Usuário não está logado
+        return const LoginScreen();
+      },
     );
   }
 }

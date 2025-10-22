@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import 'login_screen.dart';
-// Assumindo que você criou o IngredientsInputWidget e _buildFeatureItem no final do arquivo
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final AuthService authService = AuthService(); // Não pode ser const se contém lógica de logout
+    // Instância local para o logout
+    final AuthService authService = AuthService();
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('BiteWise - Sua Receita Perfeita'),
-        backgroundColor: const Color(0xFFD35400),
+        backgroundColor: const Color(0xFFD35400), // Laranja-Paprika
         elevation: 0,
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.logout, color: Colors.white),
+            tooltip: 'Sair',
             onPressed: () async {
               await authService.logout();
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => const LoginScreen()),
-              );
+              if (context.mounted) {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => const LoginScreen()),
+                );
+              }
             },
           ),
         ],
@@ -34,11 +37,11 @@ class HomeScreen extends StatelessWidget {
           children: [
             const Text(
               'A sua receita perfeita em instantes!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFFC0392B)),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFFC0392B)), // Vermelho-Tomate
             ),
             const SizedBox(height: 20),
 
-            // Aqui entra o componente de Inserção de Ingredientes
+            // Componente de Inserção de Ingredientes
             const IngredientsInputWidget(),
 
             const SizedBox(height: 40),
@@ -49,21 +52,18 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15),
 
-            // Item 1: Praticidade
             _buildFeatureItem(
               icon: Icons.timer,
               title: 'Praticidade',
               subtitle: 'Receitas em segundos, mais tempo com quem você ama.',
             ),
 
-            // Item 2: Ingredientes
             _buildFeatureItem(
               icon: Icons.kitchen,
               title: 'Ingredientes',
               subtitle: 'Use ao máximo o que você tem. Sem desperdício.',
             ),
 
-            // Item 3: Oferta (Plano Anual)
             _buildFeatureItem(
               icon: Icons.star,
               title: 'Oferta',
@@ -72,6 +72,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      // Barra de Navegação Inferior (Conforme Figma)
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.create), label: 'Criar'),
@@ -79,19 +80,19 @@ class HomeScreen extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Você'),
         ],
         currentIndex: 0,
-        selectedItemColor: const Color(0xFFD35400),
+        selectedItemColor: const Color(0xFFD35400), // Laranja-Paprika
       ),
     );
   }
 
-  // Funções de construção movidas para fora do build, mas ainda acessíveis
+  // Widget para os itens de feature (Praticidade, Ingredientes, etc.)
   Widget _buildFeatureItem({required IconData icon, required String title, required String subtitle}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: const Color(0xFF117A65), size: 30),
+          Icon(icon, color: const Color(0xFF117A65), size: 30), // Verde Mar Profundo
           const SizedBox(width: 15),
           Expanded(
             child: Column(
@@ -108,7 +109,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// Widget placeholder para a área de input principal
+// Widget de Input de Ingredientes (A ser conectado ao RecipeService)
 class IngredientsInputWidget extends StatefulWidget {
   const IngredientsInputWidget({super.key});
 
@@ -149,7 +150,7 @@ class _IngredientsInputWidgetState extends State<IngredientsInputWidget> {
               });
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFF39C12),
+              backgroundColor: const Color(0xFFF39C12), // Laranja-Mel
               padding: const EdgeInsets.symmetric(vertical: 15),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),

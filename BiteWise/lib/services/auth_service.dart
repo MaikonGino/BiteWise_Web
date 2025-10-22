@@ -2,11 +2,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/auth_models.dart';
-import '../screens/home_screen.dart';
-import '../screens/login_screen.dart';
 
 class AuthService {
-  static const String _baseUrl = 'https://bitewise-api-spring.fly.dev/api/auth';
+  // Lê a URL da API das variáveis de ambiente do Vercel
+  // Define um fallback LOCALHOST para testes
+  static const String _baseUrl = String.fromEnvironment(
+    'FLUTTER_WEB_API_URL',
+    defaultValue: 'http://localhost:8080/api/auth',
+  );
 
   static const String _tokenKey = 'jwt_token';
 
@@ -43,8 +46,11 @@ class AuthService {
     if (response.statusCode == 200) {
       final responseData = jsonDecode(utf8.decode(response.bodyBytes));
       final token = responseData['token'];
-
-      final loginResponse = LoginResponse(token: token, type: 'Bearer', message: responseData['message'] ?? 'Login bem-sucedido');
+      final loginResponse = LoginResponse(
+          token: token,
+          type: 'Bearer',
+          message: responseData['message'] ?? 'Login bem-sucedido'
+      );
 
       await _saveToken(loginResponse.token);
       return loginResponse;
@@ -54,8 +60,7 @@ class AuthService {
         final errorJson = jsonDecode(utf8.decode(response.bodyBytes));
         errorMsg = errorJson['message'] ?? 'Erro desconhecido.';
       } catch (_) {}
-
-      throw Exception('Falha no login: $errorMsg Status: ${response.statusCode}');
+      throw Exception('Falha no login: $errorMsg');
     }
   }
 
@@ -69,16 +74,13 @@ class AuthService {
       body: jsonEncode(requestBody.toJson()),
     );
 
-    if (response.statusCode == 200) {
-      return;
-    } else {
-      String errorMsg = 'Falha no registro: Verifique os dados.';
+    if (response.statusCode != 200) {
+      String errorMsg = 'Falha no registro.';
       try {
         final errorJson = jsonDecode(utf8.decode(response.bodyBytes));
         errorMsg = errorJson['message'] ?? errorMsg;
       } catch (_) {}
-
-      throw Exception('Falha no registro: $errorMsg Status: ${response.statusCode}');
+      throw Exception('Falha no registro: $errorMsg');
     }
   }
 }
