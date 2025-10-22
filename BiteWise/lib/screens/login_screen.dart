@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // LOGOTIPO (Assumindo que está em assets/images/logo.png)
-                Image.asset('assets/images/logo.png', height: 100),
+                Image.asset('assets/logo.png', height: 100),
                 const SizedBox(height: 24),
 
                 // Campos que aparecem apenas no Registro

@@ -16,7 +16,7 @@ class BiteWiseApp extends StatelessWidget {
       title: 'BiteWise App',
       theme: ThemeData(
         primarySwatch: Colors.orange,
-        fontFamily: 'Poppins', // Define a fonte Poppins como padrão (da documentação)
+        fontFamily: 'Poppins',
       ),
       home: const AuthCheck(),
     );
