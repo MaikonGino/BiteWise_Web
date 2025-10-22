@@ -40,4 +40,4 @@ flutter:
         - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/Poppins/Poppins-Bold.ttf
-          weight: 700 # CORREÇÃO: Removido o 'V'
+          weight: 700

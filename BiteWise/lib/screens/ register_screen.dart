@@ -2,25 +2,38 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import 'home_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final AuthService _authService = AuthService();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
   bool _isLoading = false;
 
-  Future<void> _loginWithEmail() async {
+  Future<void> _register() async {
+    if (_passwordController.text != _confirmPasswordController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('As senhas não coincidem'),
+          backgroundColor: Color(0xFFC0392B),
+        ),
+      );
+      return;
+    }
+
     setState(() => _isLoading = true);
     try {
-      await _authService.loginWithEmail(
+      await _authService.registerWithEmail(
         _emailController.text,
         _passwordController.text,
+        _nameController.text,
       );
       if (mounted) {
         Navigator.of(context).pushReplacement(
@@ -31,32 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro no login: $e'),
-            backgroundColor: const Color(0xFFC0392B),
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() => _isLoading = false);
-      }
-    }
-  }
-
-  Future<void> _loginWithGoogle() async {
-    setState(() => _isLoading = true);
-    try {
-      await _authService.loginWithGoogle();
-      if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const HomeScreen()),
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Erro no login com Google: $e'),
+            content: Text('Erro no cadastro: $e'),
             backgroundColor: const Color(0xFFC0392B),
           ),
         );
@@ -72,22 +60,24 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFBF5),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF333333)),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              const SizedBox(height: 40),
-              Image.asset(
-                'assets/logo.png',
-                height: 80,
-                width: 80,
-              ),
               const SizedBox(height: 20),
               const Text(
-                'BiteWise',
+                'Criar Conta',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: 28,
                   fontWeight: FontWeight.w700,
                   color: Color(0xFF117A65),
                   fontFamily: 'Poppins',
@@ -95,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 8),
               const Text(
-                'Sua cozinha inteligente',
+                'Comece sua jornada culinária inteligente',
                 style: TextStyle(
                   fontSize: 16,
                   color: Color(0xFF666666),
@@ -118,16 +108,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 child: Column(
                   children: [
-                    const Text(
-                      'Fazer Login',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF333333),
-                        fontFamily: 'Poppins',
+                    TextField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                        labelText: 'Nome Completo',
+                        labelStyle: const TextStyle(color: Color(0xFF666666)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFFE0E0E0)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFFD35400)),
+                        ),
+                        prefixIcon: const Icon(Icons.person, color: Color(0xFF666666)),
                       ),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 16),
                     TextField(
                       controller: _emailController,
                       decoration: InputDecoration(
@@ -162,11 +159,29 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: const Icon(Icons.lock, color: Color(0xFF666666)),
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: _confirmPasswordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Confirmar Senha',
+                        labelStyle: const TextStyle(color: Color(0xFF666666)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFFE0E0E0)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFFD35400)),
+                        ),
+                        prefixIcon: const Icon(Icons.lock_outline, color: Color(0xFF666666)),
+                      ),
+                    ),
                     const SizedBox(height: 24),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: _isLoading ? null : _loginWithEmail,
+                        onPressed: _isLoading ? null : _register,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFD35400),
                           foregroundColor: Colors.white,
@@ -185,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         )
                             : const Text(
-                          'ENTRAR',
+                          'CRIAR CONTA',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
@@ -194,71 +209,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    const Row(
-                      children: [
-                        Expanded(child: Divider()),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            'ou',
-                            style: TextStyle(color: Color(0xFF666666)),
-                          ),
-                        ),
-                        Expanded(child: Divider()),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton.icon(
-                        onPressed: _isLoading ? null : _loginWithGoogle,
-                        style: OutlinedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          side: const BorderSide(color: Color(0xFFE0E0E0)),
-                        ),
-                        icon: Image.asset(
-                          'assets/google_icon.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        label: const Text(
-                          'Entrar com Google',
-                          style: TextStyle(
-                            color: Color(0xFF333333),
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
-              ),
-              const SizedBox(height: 24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Não tem uma conta? ',
-                    style: TextStyle(color: Color(0xFF666666)),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/register');
-                    },
-                    child: const Text(
-                      'Cadastre-se',
-                      style: TextStyle(
-                        color: Color(0xFFD35400),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
